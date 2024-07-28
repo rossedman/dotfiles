@@ -7,7 +7,6 @@ alias ckear="clear"
 alias clr="clear"
 
 # history
-alias h="history | fzf"
-alias h1="history 10"
-alias h2="history 20"
-alias h3="history 30"
+alias h="history 100 | fzf"
+alias h2="history 200 | fzf"
+alias h3="history 300 | fzf"
