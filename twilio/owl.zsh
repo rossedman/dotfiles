@@ -1,0 +1,1 @@
+eval "$("$OWL/bin/owl" init -)"
