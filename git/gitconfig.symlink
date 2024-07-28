@@ -1,6 +1,6 @@
 [user]
-    name = Ross Edman
-    email = redman@twilio.com
+    name = AUTHORNAME
+    email = AUTHOREMAIL
 [color]
     ui = auto
 [core]
