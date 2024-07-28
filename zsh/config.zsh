@@ -5,31 +5,22 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt NO_BG_NICE # don't nice background tasks
-setopt NO_HUP
-setopt NO_LIST_BEEP
-setopt LOCAL_OPTIONS # allow functions to have local options
-setopt LOCAL_TRAPS # allow functions to have local traps
-setopt HIST_VERIFY
-setopt SHARE_HISTORY # share history between sessions ???
-setopt EXTENDED_HISTORY # add timestamps to history
-setopt PROMPT_SUBST
-setopt CORRECT
-setopt COMPLETE_IN_WORD
-setopt IGNORE_EOF
-
-setopt APPEND_HISTORY # adds history
-setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
-setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
-setopt HIST_REDUCE_BLANKS
+setopt hist_ignore_all_dups # remove older duplicate entries from history
+setopt hist_reduce_blanks # remove superfluous blanks from history items
+setopt inc_append_history # save history entries as soon as they are entered
+setopt share_history # share history between different instances of the shell
+setopt auto_cd # cd by typing directory name if it's not a command
+setopt correct_all # autocorrect commands
+setopt auto_list # automatically list choices on ambiguous completion
+setopt auto_menu # automatically use menu completion
+setopt always_to_end # move cursor to end if word had one match
+setopt prompt_subst # allows prompt substitution and function execution
 
 # don't expand aliases _before_ completion has finished
 #   like: git comm-[tab]
 setopt complete_aliases
 
-bindkey '^[^[[D' backward-word
-bindkey '^[^[[C' forward-word
-bindkey '^[[5D' beginning-of-line
-bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
-bindkey '^?' backward-delete-char
+bindkey '^[3;5~' delete-char
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
