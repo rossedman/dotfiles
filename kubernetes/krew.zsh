@@ -1,0 +1,1 @@
+kubectl krew install oidc-login
