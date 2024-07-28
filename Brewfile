@@ -4,6 +4,7 @@ tap 'homebrew/bundle'
 brew "apko"
 brew "asdf"
 brew "awscli"
+brew "bat"
 brew "conftest"
 brew "clusterawsadm"
 brew "clusterctl"
