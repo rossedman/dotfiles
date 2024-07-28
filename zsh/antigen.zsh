@@ -1,6 +1,15 @@
 source $(brew --prefix)/share/antigen/antigen.zsh
 
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle zsh-users/zsh-completions
+bundles=(
+    zsh-users/zsh-syntax-highlighting
+    zsh-users/zsh-autosuggestions
+    zsh-users/zsh-completions
+)
+
+for bundle in $bundles; do
+    if ! antigen list | grep -q $bundle; then
+        antigen bundle $bundle
+    fi
+done
+
 antigen apply
