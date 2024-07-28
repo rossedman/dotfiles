@@ -4,7 +4,6 @@ versions=(
     1.25.16
     1.28.12
     1.29.7
-    1.30.3
 )
 
 asdf plugin add kubectl
