@@ -1,3 +1,3 @@
 kfuzz() { 
-    kubectl "$@" | fzf 
+    kubectl --no-headers "$@" | fzf 
 }
