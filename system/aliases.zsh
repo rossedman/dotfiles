@@ -6,13 +6,6 @@ alias cl="clear"
 alias ckear="clear"
 alias clr="clear"
 
-# directory traversal
-alias .="cd .."
-alias ..="cd ../.."
-alias ...="cd ../../.."
-alias ....="cd ../../../.."
-alias .....="cd ../../../../.."
-
 # history
 alias h="history | fzf"
 alias h1="history 10"
