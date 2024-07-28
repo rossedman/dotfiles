@@ -1,4 +1,3 @@
-alias g="git"
 alias ga="git add -a"
 alias gcm="git commit -m"
 alias gcam="git commit -am"
