@@ -1,7 +1,6 @@
 alias cat='bat'
 
 # clear
-alias c="clear"
 alias cl="clear"
 alias ckear="clear"
 alias clr="clear"
