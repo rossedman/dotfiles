@@ -1,0 +1,3 @@
+kfuzz() { 
+    kubectl "$@" | fzf 
+}
