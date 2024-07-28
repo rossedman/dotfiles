@@ -16,10 +16,6 @@ setopt auto_menu # automatically use menu completion
 setopt always_to_end # move cursor to end if word had one match
 setopt prompt_subst # allows prompt substitution and function execution
 
-# don't expand aliases _before_ completion has finished
-#   like: git comm-[tab]
-setopt complete_aliases
-
 bindkey '^[[3~' delete-char
 bindkey '^[3;5~' delete-char
 bindkey '^[[A' history-substring-search-up
