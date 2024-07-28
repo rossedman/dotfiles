@@ -2,6 +2,7 @@ cask_args appdir: '/Applications'
 tap 'homebrew/bundle'
 
 brew "apko"
+brew "antigen"
 brew "asdf"
 brew "awscli"
 brew "bat"
