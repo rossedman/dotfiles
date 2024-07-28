@@ -22,3 +22,6 @@
 [ghq "ssh://git@code.hq.twilio.com"]
     vcs  = git
     root = ~/code
+[user]
+	email = ross.edman@gmail.com
+	name = Ross Edman
