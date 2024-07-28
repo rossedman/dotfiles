@@ -1,40 +1,27 @@
-# Local/private config goes in the include
-[include]
-        path = ~/.gitconfig.local
-[hub]
-        protocol = https
-[alias]
-        co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
-        count   = !git shortlog -sn
+[user]
+    name = Ross Edman
+    email = redman@twilio.com
 [color]
-        diff = auto
-        status = auto
-        branch = auto
-        ui = true
+    ui = auto
 [core]
-        excludesfile = ~/.gitignore
-        editor = vim
-[apply]
-        whitespace = nowarn
-[mergetool]
-        keepBackup = false
-[difftool]
-        prompt = false
-[help]
-        autocorrect = 1
-[push]
-        # See `git help config` (search for push.default)
-        # for more information on different options of the below setting.
-        #
-        # Setting to git 2.0 default to suppress warning message
-        default = simple
-[credential]
-	helper = osxkeychain
-[diff "spaceman-diff"]
-  command = /opt/homebrew/bin/spaceman-diff
-
+    # use vscode as main editor
+    editor = code --wait
+    # set sane global defaults for ignoring common files
+    excludesfile = ~/.gitignore
+    # set pager to something nice :)
+    pager = bat --style changes,grid,numbers,snip
+    # ignore trailing space change as cause for merge conflicts
+    whitespace = -trailing-space
+[commit]
+    # set default commit message template
+    template = ~/.gitcommit.txt
+[pull]
+    rebase = true
 [init]
-	defaultBranch = main
+    defaultBranch = main
+[ghq "https://github.com"]
+    vcs  = github
+    root = ~/code
+[ghq "ssh://git@code.hq.twilio.com"]
+    vcs  = git
+    root = ~/code
