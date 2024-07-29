@@ -1,3 +1,5 @@
+#!/bin/bash
+
 source $(brew --prefix)/share/antigen/antigen.zsh
 
 bundles=(
