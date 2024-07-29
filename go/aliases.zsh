@@ -1,0 +1,1 @@
+alias gt="go test -v ./..."

@@ -17,3 +17,8 @@ kctx() {
     context=$(kubectl config get-contexts --no-headers -o name | gum choose)
     kubectl config use-context $context
 }
+
+kns() {
+    namespace=$(kubectl get ns --no-headers -o name | gum choose | cut -d/ -f2)
+    kubectl config set-context --current --namespace=$namespace
+}
