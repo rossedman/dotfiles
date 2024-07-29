@@ -22,3 +22,8 @@ kns() {
     namespace=$(kubectl get ns --no-headers -o name | gum choose | cut -d/ -f2)
     kubectl config set-context --current --namespace=$namespace
 }
+
+kcu() {
+    export KUBECONFIG=$HOME/.kube/otk-mgmt
+    kubectl otk config generate --kubeconfig $KUBECONFIG
+}
