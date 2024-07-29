@@ -5,6 +5,7 @@ alias kgn="kubectl get nodes"
 alias kgp="kubectl get pods"
 
 # my extras
+alias ke="kubectl extras"
 alias kenid="kubectl extras nodes-by-id"
 alias kenip="kubectl extras nodes-by-ip"
 alias kenaws="kubectl extras nodes-by-aws"
@@ -24,6 +25,15 @@ kns() {
 }
 
 kcu() {
-    export KUBECONFIG=$HOME/.kube/otk-mgmt
+    export KUBECONFIG=$HOME/.kube/otk-sandbox
     kubectl otk config generate --kubeconfig $KUBECONFIG
+}
+
+kcu-sb() {
+    export KUBECONFIG=$HOME/.kube/otk-sandbox
+    kubectl otk config generate --kubeconfig $KUBECONFIG --selector infra-boundary=otk-sandbox --oidc-client-id 0oa1mxvbglg8RP06o1d8
+}
+
+kc() {
+    kcu && kctx && kns
 }

@@ -49,6 +49,10 @@ main() {
             shift
             kubectl get nodes -o=custom-columns='NAME:.metadata.name,STATUS:status.conditions[-1].type,ZONE:.metadata.labels.topology\.kubernetes\.io/zone,INSTANCE_ID:.spec.providerID,INSTANCE_TYPE:.metadata.labels.node\.kubernetes\.io/instance-type' "$@"
             ;;
+        "nodes-by-karpenter")
+            shift
+            kubectl get nodes -o=custom-columns='NAME:.metadata.name,STATUS:status.conditions[-1].type,INSTANCE_FAMILY:.metadata.labels.karpenter\.k8s\.aws/instance-family,INSTANCE_SIZE:.metadata.labels.karpenter\.k8s\.aws/instance-size,INSTANCE_HYPERVISOR:.metadata.labels.karpenter\.k8s\.aws/instance-hypervisor,INSTANCE_CPU:.metadata.labels.karpenter\.k8s\.aws/instance-cpu,INSTANCE_MEMORY:.metadata.labels.karpenter\.k8s\.aws/instance-memory' "$@"
+            ;;
         "nodes-by-version")
             shift
             kubectl get nodes -o=custom-columns='NAME:.metadata.name,STATUS:status.conditions[-1].type,KUBELET_VERSION:status.nodeInfo.kubeletVersion,PROXY_VERSION:status.nodeInfo.kubeProxyVersion' "$@"
