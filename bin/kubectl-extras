@@ -4,11 +4,11 @@
 case "$1" in
     "nodes-by-id")
         shift
-        kubectl get nodes -o=custom-columns='NAME:.metadata.name, STATUS:status.conditions[-1].type, ID:.spec.providerID' "$@"
+        kubectl get nodes -o=custom-columns='NAME:.metadata.name,STATUS:status.conditions[-1].type,ID:.spec.providerID' "$@"
         ;;
     "nodes-by-ip")
         shift
-        kubectl get nodes -o=custom-columns='NAME:.metadata.name, STATUS:status.conditions[-1].type, ADDRESS:status.addresses[0].address' "$@"
+        kubectl get nodes -o=custom-columns='NAME:.metadata.name,STATUS:status.conditions[-1].type,ADDRESS:status.addresses[0].address' "$@"
         ;;
     "nodes-by-aws")
         shift
@@ -16,11 +16,11 @@ case "$1" in
         ;;
     "pods-by-ip")
         shift
-        kubectl get pods -o=custom-columns='NAME:.metadata.name, ADDRESS:status.podIP, NODE_API:status.hostIP' "$@"
+        kubectl get pods -o=custom-columns='NAME:.metadata.name,ADDRESS:status.podIP,NODE_API:status.hostIP' "$@"
         ;;
     "pods-by-priority")
         shift
-        kubectl get pods -o=custom-columns='NAME:.metadata.name, PRIORITY_CLASS:spec.priorityClassName, PRIORITY:spec.priority' "$@"
+        kubectl get pods -o=custom-columns='NAME:.metadata.name,PRIORITY_CLASS:spec.priorityClassName,PRIORITY:spec.priority' "$@"
         ;;
     * ) 
         echo "Unknown command: $1 $2"
