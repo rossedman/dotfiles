@@ -1,28 +1,29 @@
 #!/bin/bash
 
 # switch statement to handle the different commands
-while true; do 
-    case "$1" in
-        "nodes-by-id")
-            kubectl get nodes -o=custom-columns='NAME:.metadata.name, STATUS:status.conditions[-1].type, ID:.spec.providerID' "$@"
-            shift
-            ;;
-        "nodes-by-ip")
-            kubectl get nodes -o=custom-columns='NAME:.metadata.name, STATUS:status.conditions[-1].type, ADDRESS:status.addresses[0].address' "$@"
-            shift
-            ;;
-        "nodes-by-aws")
-            kubectl get nodes -o=custom-columns='NAME:.metadata.name,STATUS:status.conditions[-1].type,ZONE:.metadata.labels.topology\.kubernetes\.io/zone,INSTANCE_ID:.spec.providerID,INSTANCE_TYPE:.metadata.labels.node\.kubernetes\.io/instance-type,NODEGROUP:.metadata.labels.eks\.amazonaws\.com/nodegroup,LAUNCH_TEMPLATE_ID:.metadata.labels.eks\.amazonaws\.com/sourceLaunchTemplateId,AMI:.metadata.labels.eks\.amazonaws\.com/nodegroup-image' "$@"
-            shift
-            ;;
-        "pods-by-ip")
-            kubectl get pods -o=custom-columns='NAME:.metadata.name, ADDRESS:status.podIP, NODE_API:status.hostIP' "$@"
-            shift
-            ;;
-        "pods-by-priority")
-            kubectl get pods -o=custom-columns='NAME:.metadata.name, PRIORITY_CLASS:spec.priorityClassName, PRIORITY:spec.priority' "$@"
-            shift
-            ;;
-        * ) break ;;
-    esac
-done
+case "$1" in
+    "nodes-by-id")
+        shift
+        kubectl get nodes -o=custom-columns='NAME:.metadata.name, STATUS:status.conditions[-1].type, ID:.spec.providerID' "$@"
+        ;;
+    "nodes-by-ip")
+        shift
+        kubectl get nodes -o=custom-columns='NAME:.metadata.name, STATUS:status.conditions[-1].type, ADDRESS:status.addresses[0].address' "$@"
+        ;;
+    "nodes-by-aws")
+        shift
+        kubectl get nodes -o=custom-columns='NAME:.metadata.name,STATUS:status.conditions[-1].type,ZONE:.metadata.labels.topology\.kubernetes\.io/zone,INSTANCE_ID:.spec.providerID,INSTANCE_TYPE:.metadata.labels.node\.kubernetes\.io/instance-type,NODEGROUP:.metadata.labels.eks\.amazonaws\.com/nodegroup,LAUNCH_TEMPLATE_ID:.metadata.labels.eks\.amazonaws\.com/sourceLaunchTemplateId,AMI:.metadata.labels.eks\.amazonaws\.com/nodegroup-image' "$@"
+        ;;
+    "pods-by-ip")
+        shift
+        kubectl get pods -o=custom-columns='NAME:.metadata.name, ADDRESS:status.podIP, NODE_API:status.hostIP' "$@"
+        ;;
+    "pods-by-priority")
+        shift
+        kubectl get pods -o=custom-columns='NAME:.metadata.name, PRIORITY_CLASS:spec.priorityClassName, PRIORITY:spec.priority' "$@"
+        ;;
+    * ) 
+        echo "Unknown command: $1 $2"
+        exit 1
+        ;;
+esac
