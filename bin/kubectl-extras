@@ -10,6 +10,7 @@ Commands:
     nodes-by-id
     nodes-by-ip
     nodes-by-aws
+    nodes-by-karpenter
     nodes-by-version
     pods-by-ip
     pods-by-priority
