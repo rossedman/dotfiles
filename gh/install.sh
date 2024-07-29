@@ -1,3 +1,5 @@
+#!/bin/bash
+
 extensions=(
   dlvhdr/gh-dash
   github/gh-copilot
