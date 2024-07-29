@@ -12,6 +12,7 @@ Commands:
     nodes-by-aws
     pods-by-ip
     pods-by-priority
+    pods-by-node
 
 Example:
     kubectl extras nodes-by-id
@@ -45,7 +46,11 @@ main() {
             ;;
         "nodes-by-aws")
             shift
-            kubectl get nodes -o=custom-columns='NAME:.metadata.name,STATUS:status.conditions[-1].type,ZONE:.metadata.labels.topology\.kubernetes\.io/zone,INSTANCE_ID:.spec.providerID,INSTANCE_TYPE:.metadata.labels.node\.kubernetes\.io/instance-type,NODEGROUP:.metadata.labels.eks\.amazonaws\.com/nodegroup,LAUNCH_TEMPLATE_ID:.metadata.labels.eks\.amazonaws\.com/sourceLaunchTemplateId,AMI:.metadata.labels.eks\.amazonaws\.com/nodegroup-image' "$@"
+            kubectl get nodes -o=custom-columns='NAME:.metadata.name,STATUS:status.conditions[-1].type,ZONE:.metadata.labels.topology\.kubernetes\.io/zone,INSTANCE_ID:.spec.providerID,INSTANCE_TYPE:.metadata.labels.node\.kubernetes\.io/instance-type' "$@"
+            ;;
+        "nodes-by-version")
+            shift
+            kubectl get nodes -o=custom-columns='NAME:.metadata.name,STATUS:status.conditions[-1].type,KUBELET_VERSION:status.nodeInfo.kubeletVersion,PROXY_VERSION:status.nodeInfo.kubeProxyVersion' "$@"
             ;;
         "pods-by-ip")
             shift
