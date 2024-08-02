@@ -1,5 +1,6 @@
 cask_args appdir: '/Applications'
 tap 'homebrew/bundle'
+tap 'carvel-dev/carvel'
 
 brew "apko"
 brew "antigen"
@@ -23,12 +24,14 @@ brew "git-extras"
 brew "git-quick-stats"
 brew "go"
 brew "golangci-lint"
+brew "goreleaser"
 brew "gum"
 brew "grype"
 brew "helm"
 brew "jira-cli"
 brew "jq"
 brew "k9s"
+brew "carvel-dev/carvel/kctrl"
 brew "krew"
 brew "kind"
 brew "kubeconform"
