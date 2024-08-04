@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+import ollama
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--prompt', type=str, help='Prompt for the model to generate text')
+parser.add_argument('--model', type=str, help='Model to use for generating text', default='llama3.1')
+args = parser.parse_args()
+
+response = ollama.generate(model=args.model, prompt=args.prompt)
+print(response['response'])
