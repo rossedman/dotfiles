@@ -1,6 +1,7 @@
 cask_args appdir: '/Applications'
 tap 'homebrew/bundle'
 tap 'carvel-dev/carvel'
+tap 'rossedman/tap'
 
 brew "apko"
 brew "antigen"
@@ -42,6 +43,8 @@ brew "opa"
 brew "pyenv"
 brew "rbenv"
 brew "ripgrep"
+brew 'rossedman/tap/showit'
+brew 'rossedman/tap/shellama'
 brew "skopeo"
 brew "shellcheck"
 brew "svu"

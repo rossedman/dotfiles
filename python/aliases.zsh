@@ -1,1 +1,0 @@
-alias c="cgpt --model phi3 --prompt"
