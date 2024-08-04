@@ -31,11 +31,12 @@ kcu() {
 }
 
 kctx() {
-    context=$(kubectl config get-contexts --no-headers -o name | gum choose)
+    context=$(kubectl config get-contexts --no-headers -o name | gum filter)
     kubectl config use-context $context
 }
 
 kns() {
-    namespace=$(kubectl get ns --no-headers -o name | gum choose | cut -d/ -f2)
+    namespace=$(kubectl get ns --no-headers -o name | gum filter | cut -d/ -f2)
     kubectl config set-context --current --namespace=$namespace
 }
+
